@@ -1,0 +1,122 @@
+[
+    {
+        "id": "c80a6984ac0dfc41",
+        "type": "debug",
+        "z": "727a15d579ee470c",
+        "name": "debug 42",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 1140,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "fe9b84d1be6d5b1b",
+        "type": "inject",
+        "z": "727a15d579ee470c",
+        "d": true,
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 11 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 790,
+        "y": 440,
+        "wires": [
+            [
+                "50b649ae51087b51"
+            ]
+        ]
+    },
+    {
+        "id": "50b649ae51087b51",
+        "type": "control-device",
+        "z": "727a15d579ee470c",
+        "name": "On",
+        "server": "0b17dd7f90162410",
+        "list": "null",
+        "category": "plug",
+        "device": "00124b0024c10875",
+        "v2Data": "{\"state\":{\"power\":{\"powerState\":\"on\"}},\"capabilities\":[],\"ihost\":{}}",
+        "x": 950,
+        "y": 440,
+        "wires": [
+            [
+                "c80a6984ac0dfc41"
+            ]
+        ]
+    },
+    {
+        "id": "e6c9aba7187e1539",
+        "type": "inject",
+        "z": "727a15d579ee470c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 17 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 790,
+        "y": 520,
+        "wires": [
+            [
+                "b8235cba0cb4811c"
+            ]
+        ]
+    },
+    {
+        "id": "b8235cba0cb4811c",
+        "type": "control-device",
+        "z": "727a15d579ee470c",
+        "name": "Off",
+        "server": "0b17dd7f90162410",
+        "list": "null",
+        "category": "plug",
+        "device": "00124b0024c10875",
+        "v2Data": "{\"state\":{\"power\":{\"powerState\":\"off\"}},\"capabilities\":[],\"ihost\":{}}",
+        "x": 950,
+        "y": 520,
+        "wires": [
+            [
+                "c80a6984ac0dfc41"
+            ]
+        ]
+    },
+    {
+        "id": "0b17dd7f90162410",
+        "type": "api-server",
+        "name": "MyiHost",
+        "ip": "ihost.local",
+        "ipaddr": "192.168.1.103",
+        "token": "883a201b-2fe3-4d14-bdf3-bc5fa3127bb7"
+    }
+]
